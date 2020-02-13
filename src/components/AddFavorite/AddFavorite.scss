@@ -1,0 +1,46 @@
+.modalOverlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.modalOverlay__window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF;
+    height: 573px;
+    width: 510px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 36px 40px;
+}
+
+.modalOverlay__icon-close{
+    position: absolute;
+    right: 25px;
+    top: 66px;
+}
+
+.modalOverlay__header{
+    display: flex;
+    margin-top: 25px;
+    font-size: 18px;
+    justify-content: center;
+}
+
+.modalOverlay__result{
+    margin-top: 50px;
+}
+
+.modalOverlay__button-group{
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}

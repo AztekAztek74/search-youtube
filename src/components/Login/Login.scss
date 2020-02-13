@@ -1,0 +1,40 @@
+.log-form{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E5E5E5;
+}
+
+.log-form__content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 510px;
+    height: 520px;
+    background-color: #FFFFFF;
+}
+
+.log-form__header{
+    text-align: center;
+    align-items: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    color: #000000;
+}
+
+.log-form__input-container{
+    width: 334px;
+    display: flex;
+    flex-direction: column;
+}
+
+.log-form__button{
+    width: 176px;
+    height: 52px;
+}
