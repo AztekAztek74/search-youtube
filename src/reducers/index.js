@@ -3,7 +3,6 @@ import { users } from './users'
 import { entry } from './entry'
 import { activeLogin } from './activeLogin'
 import { query, isSearch, result, sort} from './query'
-import { activeTab } from './activeTab'
 
 export const rootReducer = combineReducers({
     users,
@@ -12,6 +11,5 @@ export const rootReducer = combineReducers({
     query,
     isSearch,
     result,
-    sort,
-    activeTab
+    sort
 })

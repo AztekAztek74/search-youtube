@@ -3,7 +3,7 @@ import LoginForm from '../LoginForm/LoginForm';
 import Navigation from '../../components/Navigation/Navigation';
 import { connect } from 'react-redux';
 import { entryCheck } from '../../actions/SessionActions';
-import { activeQuery, disabledSearch, currentTab } from '../../actions/QueryActions';
+import { activeQuery, disabledSearch } from '../../actions/QueryActions';
 
 class App extends React.Component{ 
 
@@ -11,14 +11,13 @@ class App extends React.Component{
     this.props.entryCheck()
     this.props.activeQuery('')
     this.props.disabledSearch()
-    this.props.currentTab('search')
   }
 
   render(){
-    const { children, entry, activeTab, currentTab } = this.props;
+    const { children, entry } = this.props;
     if (entry){return (
       <Fragment>
-        <Navigation out={this.out} activeTab={activeTab} currentTab={currentTab} />
+        <Navigation out={this.out} />
           {children}
       </Fragment>)}
     else{
@@ -30,5 +29,4 @@ export default connect (state =>
   ({
       entry: state.entry,
       query: state.query,
-      activeTab: state.activeTab
-  }), { entryCheck, activeQuery, disabledSearch, currentTab })(App)
+  }), { entryCheck, activeQuery, disabledSearch })(App)

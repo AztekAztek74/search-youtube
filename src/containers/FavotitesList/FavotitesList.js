@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react'
 import { connect } from 'react-redux'
 import FavoriteItem from '../../components/FavoriteItem/FavoriteItem'
-import { activeQuery, activeResult, activeSort, currentTab, activeSearch } from '../../actions/QueryActions'
+import { activeQuery, activeResult, activeSort, activeSearch } from '../../actions/QueryActions'
 import { editFavorites, removeFavorites } from '../../actions/FavoritesQuery'
 import { AddFavorite } from '../../components/AddFavorite/AddFavorite'
 import './FavotitesList.scss'
@@ -52,13 +52,12 @@ class FavoritesList extends Component {
 
   queryFavorit = (elemId) =>{
     const dataFavorite = this.dataFavorite()
-    const { activeQuery, activeResult, activeSort, currentTab, activeSearch } = this.props
+    const { activeQuery, activeResult, activeSort, activeSearch } = this.props
     dataFavorite.map(data =>{
       if(data.id===elemId){
         activeQuery(data.query)
         activeResult(data.numRes)
         activeSort(data.sort)
-        currentTab('search')
         activeSearch()
       }
       return data
@@ -130,5 +129,4 @@ export default connect (state =>
     query: state.query,
     sort: state.sort,
     result: state.result,
-    activeTab: state.activeTab
-  }), { activeQuery, activeResult, activeSort, editFavorites, removeFavorites, currentTab, activeSearch })(FavoritesList)
+  }), { activeQuery, activeResult, activeSort, editFavorites, removeFavorites, activeSearch })(FavoritesList)

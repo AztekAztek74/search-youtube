@@ -1,42 +1,38 @@
 import React from 'react'
 import 'antd/dist/antd.css'
-import { Menu } from 'antd'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import './Navigation.scss'
 
 
-class Navigation extends React.Component {
-
-    render() {
-        const { out, activeTab, currentTab } = this.props;
-        return (
+const Navigation = ({ out }) => {
+    return (
+        <div className='container'>
             <div className='navigation'>
-                <Menu onClick={(e) => currentTab(e.key)} selectedKeys={activeTab} mode="horizontal">
-                    <Menu.Item key="search">
-                        <Link exact to='/search'>Поиск</Link>
-                    </Menu.Item>
-                    <Menu.Item key="favorites">
-                        <Link to='/favorites'>Избранное</Link>
-                    </Menu.Item>
-                    <Menu.Item key="out" onClick={out} >
-                        <Link exact to='/search'>Выйти</Link>
-                    </Menu.Item>
-                </Menu>
+                <div className='navigation__sections'>
+                    <div className='navigation__button'>
+                        <NavLink  exact to='/search'>Поиск</NavLink>
+                    </div>
+                    <div className='navigation__button'>
+                        <NavLink to='/favorites'>Избранное</NavLink>
+                    </div>
+                </div>
+                <div className='navigation__out'>
+                    <div className='navigation__button' onClick={out} >
+                        <NavLink exact to='/search'>Выйти</NavLink>
+                    </div>
+                </div>
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 Navigation.propTypes ={
     out: PropTypes.func.isRequired,
-    currentTab: PropTypes.func.isRequired,
-    activeTab: PropTypes.string.isRequired
 }
 
 Navigation.defaultProps ={
     out: () => {},
-    currentTab: () => {},
-    activeTab: ''
 }
 
 export default Navigation;

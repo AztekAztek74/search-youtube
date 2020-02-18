@@ -38,10 +38,3 @@ export const activeSort = (sort) =>{
         sort,
     }
 }
-
-export const currentTab = (tab) =>{
-    return{
-        type: CURRENT_TAB,
-        tab,
-    }
-}
