@@ -7,7 +7,7 @@ const VIDEO_PATH = 'https://www.youtube.com/watch?v=';
 const VideoItem = ({ videoId, title, channelTitle, url, list }) =>{ 
     return (
         <div key={videoId} className={`card card${list}`}>
-            <a target="_blank" href={VIDEO_PATH + videoId} >
+            <a target="_blank" rel="noopener noreferrer" href={VIDEO_PATH + videoId} >
                 <div className={`card__inner card__inner${list}`}>
                     <div className={`card__content-img${list}`}>
                         <img className={`card__img card__img${list}`} src={url} alt="" />
