@@ -5,7 +5,7 @@ import './Search.scss'
 import VideoList from '../../components/VideoList/VideoList'
 import { connect } from 'react-redux'
 import { activeQuery, activeSearch, activeResult, activeSort } from '../../actions/QueryActions'
-import { AddFavorite } from '../../components/AddFavorite/AddFavorite'
+import AddFavorite from '../../components/AddFavorite/AddFavorite'
 import { addFavorites, editFavorites, removeFavorites } from '../../actions/FavoritesQuery'
 import { message } from 'antd'
 

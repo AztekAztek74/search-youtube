@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import FavoriteItem from '../../components/FavoriteItem/FavoriteItem'
 import { activeQuery, activeResult, activeSort, activeSearch } from '../../actions/QueryActions'
 import { editFavorites, removeFavorites } from '../../actions/FavoritesQuery'
-import { AddFavorite } from '../../components/AddFavorite/AddFavorite'
+import AddFavorite from '../../components/AddFavorite/AddFavorite'
 import './FavotitesList.scss'
 
 class FavoritesList extends Component {
@@ -13,7 +13,9 @@ class FavoritesList extends Component {
     save: false,
     title: '',
     stateId: 0,
-    num: 12
+    num: 12,
+    actQuery: '',
+    actSort: 'noSort'
   }
 
   dataFavorite = () =>{
@@ -76,7 +78,9 @@ class FavoritesList extends Component {
         this.setState({
           title: data.title,
           stateId: data.id, 
-          num: data.numRes
+          num: data.numRes,
+          actQuery: data.query,
+          actSort: data.sort
         })
       }
       return data
@@ -93,8 +97,8 @@ class FavoritesList extends Component {
 
 
   render(){
-    const { save, modalWindow, title, num } = this.state
-    const { activeLogin, query, sort, activeQuery, activeResult, activeSort, removeFavorites } = this.props
+    const { save, modalWindow, title, num, actQuery, actSort } = this.state
+    const { activeLogin, activeQuery, activeResult, activeSort, removeFavorites } = this.props
     const favoriteByUser = this.dataFavorite()
     return(
       <Fragment>
@@ -102,7 +106,7 @@ class FavoritesList extends Component {
           <div className='favorite__container'>
             <h1 className='favorite__header'>Избранное</h1>
               <div className='favorite__background'>
-              <AddFavorite activeQuery={activeQuery} initSort={sort} selectSort={activeSort} numResults={activeResult} initTitle={title} maxResults={num} titleFavorite={this.titleFavorite} editFavorites={this.edFavorites} save={save} query={query} isOpen={modalWindow} modalAct={this.activeClear} />
+              <AddFavorite activeQuery={activeQuery} initialSort={actSort} selectSort={activeSort} numResults={activeResult} initTitle={title} maxResults={num} titleFavorite={this.titleFavorite} editFavorites={this.edFavorites} save={save} query={actQuery} isOpen={modalWindow} modalAct={this.activeClear} />
               {favoriteByUser.length ? 
                 favoriteByUser.map(data =>(
                 <div className='favorite__list'>
