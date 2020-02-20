@@ -42,3 +42,22 @@
     font-size: 28px;
     line-height: 40px;
 }
+
+.search__preloader{
+    margin-top: 50px;
+    background-color: #E5E5E5;
+    height: 93vh;
+}
+
+.search__error{
+    background-color: #E5E5E5;
+    height: 93vh;
+}
+
+.search__error-text{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 52px;
+}

@@ -8,6 +8,7 @@ import { activeQuery, activeSearch, activeResult, activeSort } from '../../actio
 import AddFavorite from '../../components/AddFavorite/AddFavorite'
 import { addFavorites, editFavorites, removeFavorites } from '../../actions/FavoritesQuery'
 import { message } from 'antd'
+import Preloader from '../../components/Preloader/Preloader'
 
 const BASE_PATH = 'https://www.googleapis.com/youtube/v3'
 const SEARCH_PATH = '/search?part=snippet&q='
@@ -25,7 +26,8 @@ class Search extends Component {
     completedQuery: '',
     sort: '',
     save: true,
-    title: ''
+    title: '',
+    isLoading: false
   }
 
   componentDidMount(){
@@ -37,8 +39,12 @@ class Search extends Component {
 
     // Fetch Data
   fetchData = (query, result, sort) => {
+    this.setState({isLoading: true})
     axios.get(`${BASE_PATH}${SEARCH_PATH}${query}${KEY_PATH}${KEY}${RESULT}${result}${BASE_SORT}${sort}`)
-    .then(result => this.setVideo(result))
+    .then(result => {
+      this.setVideo(result)
+      this.setState({isLoading: false})
+    })
     .catch(error => error)
   }
 
@@ -107,7 +113,7 @@ class Search extends Component {
 
 
   render (){
-    const { result, stateList, completedQuery, modalWindow, save } = this.state
+    const { result, stateList, completedQuery, modalWindow, save, isLoading } = this.state
     const { isSearch, activeSort, activeResult, query, activeQuery } = this.props
     const act = isSearch ? '_active' : '_disable'
     const list = stateList === 'list' ? '_list' : '_grid'
@@ -120,7 +126,16 @@ class Search extends Component {
               <AddFavorite activeQuery={activeQuery} selectSort={activeSort} numResults={activeResult} titleFavorite={this.titleFavorite} favoritesAdd={this.favoritesAdd} save={save} query={query} isOpen={modalWindow} modalAct={this.modalAct} />
               <RequestItem className={isSearch ? 'search_active' : 'search_disabled' } modalAct={this.modalAct} value={query} onChange={activeQuery} onSearch={this.onSearch} /> 
             </div>
+            {isLoading ? 
+              <Preloader />: 
+              result.length ? 
               <VideoList list={list} actList={actList} isSearch={isSearch} result={result} value={completedQuery} selectGrid={this.selectGrid} selectList={this.selectList} />
+              :
+              isSearch && 
+                <div className='search__error'>
+                  <h1 className='search__error-text'>Видео по запросу не найдено</h1>
+                </div>
+            }
           </div>
         </Fragment>
     )
