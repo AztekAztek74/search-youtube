@@ -8,7 +8,7 @@ import './Navigation.scss'
 const Navigation = ({ out }) => {
     return (
         <div className='container'>
-            <div className='navigation'>
+            <nav className='navigation'>
                 <div className='navigation__sections'>
                     <div className='navigation__button'>
                         <NavLink  exact to='/search'>Поиск</NavLink>
@@ -22,7 +22,7 @@ const Navigation = ({ out }) => {
                         <NavLink exact to='/search'>Выйти</NavLink>
                     </div>
                 </div>
-            </div>
+            </nav>
         </div>
     )
 }
