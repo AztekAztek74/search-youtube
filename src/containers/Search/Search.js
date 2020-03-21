@@ -13,7 +13,7 @@ import Preloader from '../../components/Preloader/Preloader'
 const BASE_PATH = 'https://www.googleapis.com/youtube/v3'
 const SEARCH_PATH = '/search?part=snippet&q='
 const KEY_PATH = '&type=video&key='
-const KEY = 'AIzaSyAhtDMDRo6MVoESyjzHW9bwExpvlZ-u7VA'
+const KEY = ''
 const RESULT = '&maxResults='
 const BASE_SORT = '&sort='
 
