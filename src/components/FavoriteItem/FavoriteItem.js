@@ -10,7 +10,7 @@ const FavoriteItem = ({
     id, title, modalActData, activeLogin, removeFavorites, queryFavorit
 }) =>{
     return(
-        <div className='favorite__inner'>
+        <div key={id} className='favorite__inner'>
             <Link to='/search'><div className='favorite__title' onClick={() => queryFavorit(id)}><p>{title}</p></div></Link>
             <div>
                 <Icon className='favorite__icon favorite__icon_edit' onClick={() => modalActData(id)} type="highlight" />

@@ -23,7 +23,7 @@ const AddFavoriteSlider = ({ selectSort, initialSort }) => {
 }
 
 AddFavoriteSlider.propTypes = {
-    initialSort: PropTypes.number,
+    initialSort: PropTypes.string,
     selectSort: PropTypes.func
 }
 

@@ -109,8 +109,8 @@ class FavoritesList extends Component {
               <AddFavorite activeQuery={activeQuery} initialSort={actSort} selectSort={activeSort} numResults={activeResult} initTitle={title} maxResults={num} titleFavorite={this.titleFavorite} editFavorites={this.edFavorites} save={save} query={actQuery} isOpen={modalWindow} modalAct={this.activeClear} />
               {favoriteByUser.length ? 
                 favoriteByUser.map(data =>(
-                <div className='favorite__list'>
-                  <FavoriteItem id={data.id} key={data.id} title={data.title} modalActData={this.modalActData}
+                <div key={data.id} className='favorite__list'>
+                  <FavoriteItem id={data.id}  title={data.title} modalActData={this.modalActData}
                   activeLogin={activeLogin} removeFavorites={removeFavorites} queryFavorit={this.queryFavorit}
                   />
                 </div>
