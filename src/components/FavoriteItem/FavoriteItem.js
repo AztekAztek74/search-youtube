@@ -11,7 +11,7 @@ const FavoriteItem = ({
 }) =>{
     return(
         <div key={id} className='favorite__inner'>
-            <Link to='/search'><div className='favorite__title' onClick={() => queryFavorit(id)}><p>{title}</p></div></Link>
+            <Link to='/search-youtube'><div className='favorite__title' onClick={() => queryFavorit(id)}><p>{title}</p></div></Link>
             <div>
                 <Icon className='favorite__icon favorite__icon_edit' onClick={() => modalActData(id)} type="highlight" />
                 <Icon className='favorite__icon favorite__icon_delete' type="delete" onClick={() => removeFavorites(id, activeLogin)} />

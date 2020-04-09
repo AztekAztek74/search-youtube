@@ -11,10 +11,10 @@ const Navigation = ({ out }) => {
             <nav className='navigation'>
                 <div className='navigation__sections'>
                     <div className='navigation__button'>
-                        <NavLink  exact to='/search'>Поиск</NavLink>
+                        <NavLink  exact to='/search-youtube'>Поиск</NavLink>
                     </div>
                     <div className='navigation__button'>
-                        <NavLink to='/favorites'>Избранное</NavLink>
+                        <NavLink to='/favorites-youtube'>Избранное</NavLink>
                     </div>
                 </div>
                 <div className='navigation__out'>
