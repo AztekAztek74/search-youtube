@@ -19,7 +19,7 @@ const Navigation = ({ out }) => {
                 </div>
                 <div className='navigation__out'>
                     <div className='navigation__button' onClick={out} >
-                        <NavLink exact to='/search'>Выйти</NavLink>
+                        <NavLink exact to='/search-youtube'>Выйти</NavLink>
                     </div>
                 </div>
             </nav>
